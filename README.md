@@ -10,4 +10,6 @@ To use:
 
 >Add the JVM argument flag `-XX:+UseLargePages` to your server.
 
+>Launch via ./server_largepage.sh
+
 If something doesn't work please let me know.
