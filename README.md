@@ -12,4 +12,6 @@ To use:
 
 >Launch via ./server_largepage.sh
 
-If something doesn't work please let me know.
+If it doesn't run, check if the script is executable. You can do `chmod +x server_largepage.sh` to do that.
+
+If something doesn't work right please let me know.
