@@ -1,11 +1,16 @@
 #!/bin/bash
 set -eou pipefail
 
+##### EDIT THIS LINE TO BE SAME AMOUNT OF MEMORY AS THE -Xmx VALUE OF YOUR SERVER! #####
 readonly LARGE_PAGE_MB=4096
+
 readonly LARGE_PAGE_JVM_HEADROOM_MB=512
 readonly LARGE_PAGE_TOTAL_MB=$(("$LARGE_PAGE_MB" + "$LARGE_PAGE_JVM_HEADROOM_MB"))
 readonly LARGE_PAGE_COUNT=$(("$LARGE_PAGE_TOTAL_MB" / 2))
 
+readonly SCRIPT_PATH=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
+##### EDIT THIS LINE TO BE THE NAME OF THE LAUNCH SCRIPT FOR YOUR SERVER! #####
 readonly STARTSERVER_SCRIPT="startserver-java9.sh"
 
 total_hugepage()
@@ -23,7 +28,7 @@ sanity_check()
                 echo "large pages are not configured on your system to 2MiB!"
                 exit
         fi
-        if [ "$(zgrep 'CONFIG_COMPACTION=' /proc/config.gz | cut -d= -f2)" != "y" ]; then
+        if [ ! -f /proc/sys/vm/compact_memory ]; then
                 echo "compaction not supported by kernel! hugepages must be set at boot!"
                 exit
         fi
@@ -92,7 +97,7 @@ main()
                 fi
         fi
 
-
+        cd "$SCRIPT_PATH"
         ./"$STARTSERVER_SCRIPT"
 
         reset_largepages "$reset_on_exit" "$reset_back_pages"
