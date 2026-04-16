@@ -15,3 +15,5 @@ To use:
 If it doesn't run, check if the script is executable. You can do `chmod +x server_largepage.sh` to do that.
 
 If something doesn't work right please let me know.
+
+This script is very basic, it is meant to be.
