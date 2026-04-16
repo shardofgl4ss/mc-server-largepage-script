@@ -17,3 +17,5 @@ If it doesn't run, check if the script is executable. You can do `chmod +x serve
 If something doesn't work right please let me know.
 
 This script is very basic, it is meant to be.
+
+Also, large pages are best used with G1GC, not ZGC. ZGC uses unimaginably more memory then G1GC, and would require probably 1-2 gigs of extra headroom. If you insist on ZGC, edit the HEADROOM variable to be 1024 or 2048.
