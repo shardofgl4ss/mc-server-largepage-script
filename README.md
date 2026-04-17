@@ -2,7 +2,7 @@
 a simple bash script for a few friends to automate detecting, setting and/or calculating large pages for java MC.
 
 To use:
->Set LARGE_PAGE_MB at the top to the exact value of your -Xmx value in the server.
+>Set LARGE_PAGE_MB at the top to the exact value of your -Xmx value in the server. (I would also recommend keeping the same -Xmx and -Xms value.)
 
 >Put this script in the server folder where your server launch script is.
 
