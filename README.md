@@ -12,7 +12,7 @@ To use:
 
 >Launch via ./server_largepage.sh
 
-If it doesn't run, check if the script is executable. You can do `chmod +x server_largepage.sh` to do that.
+If it doesn't run, check if the script is executable. You can do `chmod +x server_largepage.sh` to set it executable.
 
 If something doesn't work right please let me know.
 
